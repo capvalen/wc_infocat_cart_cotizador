@@ -1,0 +1,301 @@
+/**
+ * WC Infocat Cart Cotizador - Estilos propios (sin Bootstrap).
+ *
+ * @package WC_Infocat_Cart_Cotizador
+ */
+
+/* ------------------------------------------------------------------
+ * Botón "Cotizar" en el producto
+ * ------------------------------------------------------------------ */
+.wcinfocat-btn-cotizar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-left: 8px;
+	padding: 0.65em 1.4em;
+	border: 1px solid #16a34a;
+	border-radius: 6px;
+	background: #ffffff;
+	color: #16a34a;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.wcinfocat-btn-cotizar:hover,
+.wcinfocat-btn-cotizar:focus {
+	background: #16a34a;
+	color: #ffffff;
+}
+
+/* ------------------------------------------------------------------
+ * Ocultar botón "Añadir al carrito"
+ * ------------------------------------------------------------------ */
+body.wcinfocat-hide-add-to-cart .add_to_cart_button,
+body.wcinfocat-hide-add-to-cart button.single_add_to_cart_button,
+body.wcinfocat-hide-add-to-cart a.add_to_cart_button,
+body.wcinfocat-hide-add-to-cart .single_add_to_cart_button {
+	display: none !important;
+}
+
+/* ------------------------------------------------------------------
+ * Overlay
+ * ------------------------------------------------------------------ */
+.wcinfocat-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9998;
+	background: rgba(15, 23, 42, 0.55);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* ------------------------------------------------------------------
+ * Offcanvas (panel lateral derecho)
+ * ------------------------------------------------------------------ */
+.wcinfocat-offcanvas {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 9999;
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	max-width: 92vw;
+	height: 100%;
+	background: #ffffff;
+	box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
+	transform: translateX(100%);
+	transition: transform 0.3s ease;
+}
+
+.wcinfocat-open .wcinfocat-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+
+.wcinfocat-open .wcinfocat-offcanvas {
+	transform: translateX(0);
+}
+
+/* Bloquear scroll del body cuando está abierto. */
+.wcinfocat-open {
+	overflow: hidden;
+}
+
+/* ------------------------------------------------------------------
+ * Encabezado
+ * ------------------------------------------------------------------ */
+.wcinfocat-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 16px 20px;
+	background: var(--wcinfocat-header-color, #016c79);
+	color: #ffffff;
+}
+
+.wcinfocat-header-icon {
+	width: 22px;
+	height: 22px;
+	filter: brightness(0) invert(1);
+}
+
+.wcinfocat-header-title {
+	flex: 1;
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+.wcinfocat-close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border: none;
+	border-radius: 50%;
+	background: transparent;
+	color: #ffffff;
+	font-size: 1.6rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.wcinfocat-close:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+/* ------------------------------------------------------------------
+ * Cuerpo
+ * ------------------------------------------------------------------ */
+.wcinfocat-body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 16px 20px;
+}
+
+.wcinfocat-body-title {
+	display: none;
+	margin: 0 0 8px;
+	font-size: 1rem;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.wcinfocat-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wcinfocat-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 0;
+	border-bottom: 1px solid #eef0f3;
+}
+
+.wcinfocat-item:last-child {
+	border-bottom: none;
+}
+
+.wcinfocat-item-img {
+	width: 60px;
+	height: 60px;
+	flex-shrink: 0;
+	border-radius: 8px;
+	object-fit: cover;
+	background: #f1f5f9;
+}
+
+.wcinfocat-item-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.wcinfocat-item-name {
+	margin-bottom: 8px;
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: #0f172a;
+	line-height: 1.3;
+}
+
+.wcinfocat-item-controls {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.wcinfocat-qty-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border: 1px solid #cbd5e1;
+	border-radius: 50%;
+	background: #ffffff;
+	color: #0f172a;
+	font-size: 1rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.wcinfocat-qty-btn:hover {
+	background: #f1f5f9;
+	border-color: #94a3b8;
+}
+
+.wcinfocat-qty {
+	min-width: 22px;
+	text-align: center;
+	font-weight: 700;
+	color: var(--wcinfocat-accent-color, #046876);
+}
+
+.wcinfocat-item-price {
+	margin-left: auto;
+	font-weight: 700;
+	color: var(--wcinfocat-accent-color, #046876);
+	text-align: right;
+	white-space: nowrap;
+}
+
+.wcinfocat-empty {
+	margin: 40px 0;
+	text-align: center;
+	color: #94a3b8;
+}
+
+/* ------------------------------------------------------------------
+ * Pie
+ * ------------------------------------------------------------------ */
+.wcinfocat-footer {
+	padding: 16px 20px;
+	border-top: 1px solid #eef0f3;
+	background: #f8fafc;
+}
+
+.wcinfocat-total-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px;
+	font-size: 1rem;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.wcinfocat-total {
+	font-size: 1.2rem;
+	color: var(--wcinfocat-accent-color, #046876);
+}
+
+.wcinfocat-btn-whatsapp {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+	padding: 10px 16px;
+	border: 1px solid #25d366;
+	border-radius: 8px;
+	background: #ffffff;
+	color: #25d366;
+	font-size: 0.9rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.wcinfocat-whatsapp-icon {
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+	color: #25d366;
+}
+
+.wcinfocat-btn-whatsapp:hover {
+	background: #f0fdf4;
+	border-color: #128c7e;
+}
+
+/* ------------------------------------------------------------------
+ * Responsive
+ * ------------------------------------------------------------------ */
+@media (max-width: 480px) {
+	.wcinfocat-offcanvas {
+		width: 100%;
+		max-width: 100%;
+	}
+}
